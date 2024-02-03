@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <title>World time</title>
+    <link rel="icon" href="WT F.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @media screen and (max-width: 500px) {
+            #JST {
+                font-size: 600%;
+                font-weight: 500;
+                margin-right: 10px;
+                margin: 0px;
+            }
+            h1, #world_t, #japan_i {
+                font-size: 150%;
+            }
+            #sec_m {
+                display: none;
+            }
+            .br::after{
+               content:"\A";
+               white-space:pre;
+            }
+        }
+        @media screen and (min-width: 501px){
+            #JST {
+                font-size: 1200%;
+                font-weight: 500;
+                margin: 0px;
+                margin-left: 10%;
+            }
+            h1, #sec_m, #japan_i, #world_t {
+                font-size: 150%;
+            }
+        }
+        html {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+        img {
+            width: 75px;
+        }
+        footer {
+            margin-top: 84px;
+            width: 100%;
+            text-align: center;
+            background-color: rgb(248, 244, 244);
+            margin-bottom: 0%;
+        }
+        #icon {
+            width: 30px;
+        }
+    </style>
+    <script>
+     setInterval(() => {
+        var time = new Date();
+        var hour = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+        var sec_m = time.getMilliseconds();
+        var year = time.getFullYear();
+        var day = time.getDay();
+        var mon = time.getMonth();
+        if (sec == "1") {
+        sec = sec + "  ";
+        }
+        document.getElementById('JST').innerHTML = hour + ":" + min + ":" + sec;
+        document.getElementById('sec_m').innerHTML = sec_m;
+        document.getElementById('japan_i').innerHTML = year + "年" + mon + "月" + day + "日";
+        var UTCtime = new Date().toUTCString();
+        document.getElementById('UTC').innerHTML = UTCtime;
+        var newyork = new Date().toLocaleString('en-US', { timeZone: 'America/New_York'  });
+        document.getElementById('NEW').innerHTML = newyork;
+     })
+    </script>
+</head>
+<body>
+    <h1>World&ensp;time</h1>
+    <img src="Japanflag.png">&ensp;Japan&ensp;Time(JST)
+    <br>
+    <span id="JST"></span>
+    <span id="sec_m"></span>
+    <h4 id="japan_i"></h4>
+    <span id="world_t">
+    <span class="br">
+    GMT&ensp;Time:&ensp;
+        <span id="UTC"></span>
+    </span>
+    New&ensp;York&ensp;Time:&ensp;<span id="NEW"></span>
+</span>
+<footer id="footer">
+    <a href="World time.html"><img width="30px" src="WT F.ico" id="icon"></a>
+    <br>
+    <button style="background-color: white; color: black; border: solid 2px black;" href="https://japan-toushika.github.io/CIC">CIC</button>
+    <br>
+    <span class="center">
+    <small>&copy;2024 All Rights Reserved
+        <br>ver.1.1</small>
+    </span>
+</footer>
+</body>
