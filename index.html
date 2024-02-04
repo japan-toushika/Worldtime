@@ -62,15 +62,11 @@
         var min = time.getMinutes();
         var sec = time.getSeconds();
         var sec_m = time.getMilliseconds();
-        var year = time.getFullYear();
-        var day = time.getDay();
-        var mon = time.getMonth();
         if (sec == "1") {
         sec = sec + "  ";
         }
         document.getElementById('JST').innerHTML = hour + ":" + min + ":" + sec;
         document.getElementById('sec_m').innerHTML = sec_m;
-        document.getElementById('japan_i').innerHTML = year + "年" + mon + "月" + day + "日";
         var UTCtime = new Date().toUTCString();
         document.getElementById('UTC').innerHTML = UTCtime;
         var newyork = new Date().toLocaleString('en-US', { timeZone: 'America/New_York'  });
@@ -84,7 +80,7 @@
     <br>
     <span id="JST"></span>
     <span id="sec_m"></span>
-    <span id="japan_i"></span>
+    <br><br>
     <div id="center">
       <span id="world_t">
           <span class="br">
